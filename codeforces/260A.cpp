@@ -358,7 +358,13 @@ void solve()
 	}
 	else {
 		i = i * 10;
-		if ((j - i % j) <= 9) {
+		if (i % j == 0) {
+			cout << i;
+			for (f = 0; f < n - 1; f++) {
+				cout << 0;
+			}
+		}
+		else if ((j - i % j) <= 9) {
 			cout << i + (j - i % j);
 			for (f = 0; f < n - 1; f++) {
 				cout << 0;
