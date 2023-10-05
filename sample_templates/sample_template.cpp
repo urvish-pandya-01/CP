@@ -340,6 +340,25 @@ struct segment_tree {
 
 };
 
+vector<ll> primes;
+vector<bool> is_prime(N + 1, true);
+void sieve_of_eratosthenes() {
+	is_prime[0] = is_prime[1] = false;
+	// cout << "N is " << N << endl;
+	// cout << is_prime.size() << endl;
+	for (int i = 2; i * i <= N; i++) {
+		if (is_prime[i]) {
+			for (int j = i * i; j <= N; j += i)
+				is_prime[j] = false;
+		}
+	}
+	for (int i = 2; i <= N; i++) {
+		if (is_prime[i]) {
+			primes.pb(i);
+		}
+	}
+}
+
 /* ========== YOUR CODE HERE ========= */
 
 // 	To use  Ncr combinatrices function use the struct combi C
